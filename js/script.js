@@ -3,12 +3,37 @@
    Lê os dados de diario-dados.js e galeria-dados.js e monta o HTML.
    Não precisa editar este arquivo para adicionar posts ou fotos — só os
    arquivos de dados.
+
+   OTIMIZAÇÃO DE IMAGENS
+   As fotos originais (de celular) costumam vir muito pesadas. Em vez de
+   carregar o arquivo original inteiro, a galeria pede uma versão já
+   redimensionada e comprimida através do serviço gratuito wsrv.nl, que
+   busca a foto original no seu GitHub Pages e devolve uma cópia menor.
+   Isso deixa o carregamento bem mais rápido sem precisar editar as fotos.
    ========================================================================== */
+
+/* Endereço base do seu site publicado — usado para montar a URL completa
+   de cada foto (o serviço de otimização precisa da URL pública, não só
+   do caminho relativo tipo "imagens/foto.jpg"). */
+const BASE_URL_SITE = "https://neysidi40-debug.github.io/k4pu/";
 
 function escapeHTML(texto) {
   const div = document.createElement("div");
   div.textContent = texto;
   return div.innerHTML;
+}
+
+/* Monta a URL otimizada de uma imagem.
+   largura: tamanho máximo em pixels que a imagem vai ocupar na tela. */
+function urlOtimizada(caminhoRelativo, largura) {
+  const urlOriginal = BASE_URL_SITE + caminhoRelativo;
+  const parametros = new URLSearchParams({
+    url: urlOriginal,
+    w: String(largura),
+    q: "75",
+    output: "webp",
+  });
+  return `https://wsrv.nl/?${parametros.toString()}`;
 }
 
 function cartaoEntrada(post) {
@@ -103,7 +128,12 @@ function renderGaleria(seletor) {
     (foto, i) => `
       <figure class="polaroide" data-indice="${i}">
         <div class="foto-wrap">
-          <img src="${escapeHTML(foto.src)}" alt="${escapeHTML(foto.legenda)}" loading="lazy">
+          <img
+            src="${escapeHTML(urlOtimizada(foto.src, 500))}"
+            alt="${escapeHTML(foto.legenda)}"
+            loading="lazy"
+            decoding="async"
+          >
         </div>
         <figcaption class="legenda">${escapeHTML(foto.legenda)}</figcaption>
       </figure>
@@ -124,7 +154,9 @@ function configurarLightbox(grade) {
   grade.querySelectorAll(".polaroide").forEach((el) => {
     el.addEventListener("click", () => {
       const foto = FOTOS[Number(el.dataset.indice)];
-      imgLightbox.src = foto.src;
+      /* No lightbox a foto aparece grande, então pedimos uma versão maior
+         (1200px) — ainda bem mais leve que o arquivo original. */
+      imgLightbox.src = urlOtimizada(foto.src, 1200);
       imgLightbox.alt = foto.legenda;
       legendaLightbox.textContent = foto.legenda;
       lightbox.classList.add("aberto");
