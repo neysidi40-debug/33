@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>home 33</title>
+  <link rel="stylesheet" href="css/style.css?v=ticker-2">
+</head>
+<body>
+
+  <header class="topo">
+    <div class="topo-conteudo">
+      <a class="marca" href="index.html">k4pu <span>33</span></a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="hero-etiqueta">fuck everything</span>
+    <h1>just trying to <em>exist</em> without losing my mind</h1>
+    <p>fotos, pensamentos e algumas coisas aleatórias que eu decidi deixar aqui.</p>
+  </section>
+
+  <nav class="nav-principal menu-central">
+    <a href="index.html">home</a>
+    <a href="diario.html">diary</a>
+    <a href="galeria.html">picture</a>
+  </nav>
+
+  <section class="secao">
+    <div class="secao-titulo">
+      <h2>latest posts</h2>
+      <a class="ver-tudo" href="diario.html">read more →</a>
+    </div>
+    <div id="lista-entradas-home"></div>
+  </section>
+
+  <section class="widgets" aria-label="Outras informações">
+    <article class="widget widget-status">
+      <h2>status</h2>
+      <p><span class="status-ponto" aria-hidden="true"></span><strong> disponível</strong></p>
+      <small>kapuxn</small>
+    </article>
+
+    <article class="widget widget-musica">
+      <h2>ouvindo agora</h2>
+      <p><a href="https://www.youtube.com/watch?v=Bm2Eg2X4kZA" target="_blank" rel="noopener">Na Hora do Almoço</a></p>
+      <small>Belchior</small>
+    </article>
+
+    <div class="widget-ticker" aria-label="Nome do dono do site">
+      <div class="ticker-track">
+        <span>fuck&nbsp; * &nbsp;everything&nbsp; * &nbsp;fuck&nbsp; * &nbsp;everything&nbsp; * &nbsp; fuck&nbsp; * &nbsp;everything&nbsp; * &nbsp;fuck&nbsp; * &nbsp;everything&nbsp; * &nbsp; fuck&nbsp; * &nbsp;everything&nbsp; * &nbsp;fuck&nbsp; * &nbsp;everything&nbsp; * &nbsp;</span>
+        <span aria-hidden="true">fuck&nbsp; * &nbsp;everything&nbsp; * &nbsp;fuck&nbsp; * &nbsp;everything&nbsp; * &nbsp; fuck&nbsp; * &nbsp;everything&nbsp; * &nbsp;fuck&nbsp; * &nbsp;everything&nbsp; * &nbsp; fuck&nbsp; * &nbsp;everything&nbsp; * &nbsp;fuck&nbsp; * &nbsp;everything&nbsp; * &nbsp;</span>
+      </div>
+    </div>
+
+    <article class="widget widget-changelog">
+      <h2>changelog</h2>
+      <div id="lista-changelog"></div>
+    </article>
+
+    <article class="widget widget-enquete">
+      <h2>enquete</h2>
+      <p>o que você achou do site?</p>
+      <form id="form-enquete">
+        <label><input type="radio" name="opiniao" value="curti" required> curti</label>
+        <label><input type="radio" name="opiniao" value="pode-melhorar"> pode melhorar</label>
+        <button type="submit">votar</button>
+      </form>
+      <small id="resultado-enquete" aria-live="polite"></small>
+    </article>
+
+    <article class="widget widget-links">
+      <h2>links</h2>
+      <a href="galeria.html">pictures</a>
+      <a href="diario.html">diary</a>
+      <a href="https://discord.com" target="_blank" rel="noopener">discord: kapuxn</a>
+    </article>
+
+    <article class="widget">
+      <h2>eu</h2>
+      <p>um canto para fotos, pensamentos e coisas que eu não quero esquecerkk.</p>
+    </article>
+
+    <article class="widget">
+      <h2>agora</h2>
+      <p>aprendendo programação pra ocupar a mente.</p>
+      <small>humor: duvidoso</small>
+    </article>
+
+    <article class="widget">
+      <h2>livro de visitas</h2>
+      <p>deixe um oi na próxima versão.</p>
+      <small>guestbook em breve</small>
+    </article>
+
+    <article class="widget widget-contador">
+      <h2>contador</h2>
+      <p class="contador-numero">33.33</p>
+      <small>pessoas passaram por aqui</small>
+    </article>
+  </section>
+
+  <footer class="rodape">
+    <div class="rodape-conteudo">
+      <span>k4pu</span>
+      <span class="discord">discord: kapuxn</span>
+      <span>33 / still here</span>
+    </div>
+  </footer>
+
+  <script src="js/diario-dados.js?v=posts-pt"></script>
+  <script src="js/changelog-dados.js?v=changelog-1"></script>
+  <script src="js/script.js?v=posts-pt"></script>
+  <script>
+    renderListaEntradas("#lista-entradas-home", 3);
+    renderChangelog("#lista-changelog", 3);
+
+    document.getElementById("form-enquete").addEventListener("submit", (evento) => {
+      evento.preventDefault();
+      document.getElementById("resultado-enquete").textContent = "voto registrado, valeu!";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gallery 33</title>
+  <link rel="stylesheet" href="css/style.css?v=lightbox-2">
+</head>
+<body>
+
+  <header class="topo">
+    <div class="topo-conteudo">
+      <a class="marca" href="index.html">k4pu <span>33</span></a>
+    </div>
+  </header>
+
+  <nav class="nav-principal menu-central">
+    <a href="index.html">home</a>
+    <a href="diario.html">diary</a>
+    <a href="galeria.html">picture</a>
+  </nav>
+
+  <section class="secao">
+    <div class="secao-titulo">
+      <h2>pictures</h2>
+      <span class="contagem" id="contagem-fotos"></span>
+      <button class="musica-controle" type="button">♫ abrir música</button>
+    </div>
+    <div class="galeria-grade" id="grade-galeria"></div>
+  </section>
+
+  <footer class="rodape">
+    <div class="rodape-conteudo">
+      <span>k4pu</span>
+      <span class="discord">discord: kapuxn</span>
+      <span>33</span>
+    </div>
+  </footer>
+
+  <div class="lightbox">
+    <button class="lightbox-fechar">fechar ✕</button>
+    <div class="lightbox-conteudo">
+      <img src="" alt="">
+      <div class="legenda"></div>
+    </div>
+  </div>
+
+  <script src="js/galeria-dados.js?v=seila-1"></script>
+  <script src="js/script.js?v=lightbox-2"></script>
+  <script>
+    renderGaleria("#grade-galeria");
+    document.getElementById("contagem-fotos").textContent =
+      FOTOS.length + (FOTOS.length === 1 ? " picture" : " pictures");
+  </script>
+</body>
+</html>
