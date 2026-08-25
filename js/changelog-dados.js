@@ -6,5 +6,9 @@ const ATUALIZACOES = [
   {
     data: "23 ago 2026",
     texto: "galeria com fotos locais, lightbox e navegação compacta."
+  },
+  {
+    data: '25 ago 2026',
+    texto: 'att de otimização de imagens quebrou a porra toda.'
   }
 ];
