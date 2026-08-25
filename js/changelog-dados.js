@@ -10,5 +10,9 @@ const ATUALIZACOES = [
   {
     data: '25 ago 2026',
     texto: 'att de otimização de imagens quebrou a porra toda.'
+  },
+  {
+    data: '25 ago 2026',
+    texto: 'legenda nas fotokk.'
   }
 ];
