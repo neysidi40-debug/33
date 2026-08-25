@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>terminal 33</title>
+  <link rel="stylesheet" href="css/style.css?v=readme-3">
+  <link rel="stylesheet" href="css/terminal.css?v=terminal-1">
+</head>
+<body>
+
+  <header class="topo">
+    <div class="topo-conteudo">
+      <a class="marca" href="index.html">k4pu <span>33</span></a>
+    </div>
+  </header>
+
+  <nav class="nav-principal menu-central">
+    <a href="index.html">home</a>
+    <a href="diario.html">diary</a>
+    <a href="galeria.html">picture</a>
+    <a href="terminal.html">terminal</a>
+  </nav>
+
+  <section class="secao secao-terminal">
+    <div class="secao-titulo">
+      <h2>terminal</h2>
+      <span class="contagem">type "help"</span>
+    </div>
+
+    <div class="terminal-janela" id="terminal-janela">
+      <div class="terminal-barra">
+        <span class="terminal-titulo">kapu@33: ~</span>
+      </div>
+
+      <div class="terminal-corpo" id="terminal-corpo" aria-live="polite"></div>
+
+      <div class="terminal-linha-atual">
+        <span class="terminal-prompt">kapu@33:~$</span>
+        <span class="terminal-visivel">
+          <span id="terminal-digitado" class="terminal-digitado"></span><span class="terminal-cursor" aria-hidden="true"></span>
+        </span>
+        <input
+          type="text"
+          id="terminal-input"
+          class="terminal-input-real"
+          autocomplete="off"
+          autocapitalize="off"
+          autocorrect="off"
+          spellcheck="false"
+          aria-label="comando do terminal">
+      </div>
+    </div>
+  </section>
+
+  <footer class="rodape">
+    <div class="rodape-conteudo">
+      <span>k4pu</span>
+      <span class="discord">discord: kapuxn</span>
+      <span>33 / still here</span>
+    </div>
+  </footer>
+
+  <script src="js/script.js?v=terminal-1"></script>
+  <script src="js/terminal.js?v=terminal-1"></script>
+</body>
+</html>
