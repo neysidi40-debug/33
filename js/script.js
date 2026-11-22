@@ -103,14 +103,30 @@ function renderGaleria(seletor) {
     (foto, i) => `
       <figure class="polaroide" data-indice="${i}">
         <div class="foto-wrap">
-          <img src="${escapeHTML(foto.src)}" alt="${escapeHTML(foto.legenda)}" loading="lazy">
+          <img src="${escapeHTML(versaoFoto(foto.src, "mini"))}" alt="${escapeHTML(foto.legenda)}"
+               loading="${i < 6 ? "eager" : "lazy"}" decoding="async" width="600" height="600">
         </div>
         <figcaption class="legenda">${escapeHTML(foto.legenda)}</figcaption>
       </figure>
     `
   ).join("");
 
+  // foto nova sem versão leve ainda (falta rodar "npm run fotos"): usa o original
+  container.querySelectorAll(".foto-wrap img").forEach((img, i) => {
+    img.addEventListener("error", () => { img.src = FOTOS[i].src; }, { once: true });
+    if (img.complete && img.naturalWidth) img.classList.add("carregada");
+    else img.addEventListener("load", () => img.classList.add("carregada"), { once: true });
+  });
+
   configurarLightbox(container);
+}
+
+/* Caminho da versão otimizada (gerada por ferramentas/otimizar-fotos.js).
+   versaoFoto("imagens/IMG_1.jpg", "mini") → "imagens/mini/IMG_1.webp" */
+function versaoFoto(src, pasta) {
+  const barra = src.lastIndexOf("/");
+  const nome = src.slice(barra + 1).replace(/\.[^.]+$/, "");
+  return `${src.slice(0, barra)}/${pasta}/${nome}.webp`;
 }
 
 function configurarLightbox(grade) {
@@ -124,11 +140,22 @@ function configurarLightbox(grade) {
   grade.querySelectorAll(".polaroide").forEach((el) => {
     el.addEventListener("click", () => {
       const foto = FOTOS[Number(el.dataset.indice)];
-      imgLightbox.src = foto.src;
+      // mostra a miniatura na hora e troca pela versão grande quando ela chegar
+      const miniatura = el.querySelector("img");
+      imgLightbox.src = miniatura.currentSrc || miniatura.src;
+      const grande = new Image();
+      grande.onload = () => { if (imgLightbox.dataset.atual === foto.src) imgLightbox.src = grande.src; };
+      grande.onerror = () => { if (imgLightbox.dataset.atual === foto.src) imgLightbox.src = foto.src; };
+      imgLightbox.dataset.atual = foto.src;
+      grande.src = versaoFoto(foto.src, "grande");
       imgLightbox.alt = foto.legenda;
       legendaLightbox.textContent = foto.legenda;
       lightbox.classList.add("aberto");
       document.body.classList.add("lightbox-aberto");
+      // segredo: a 33ª foto guarda o fragmento 2 da sala secreta
+      if (Number(el.dataset.indice) === 32 && window.k4puFragmento) {
+        setTimeout(() => window.k4puFragmento(2), 900);
+      }
     });
   });
 
@@ -159,6 +186,12 @@ function iniciarChuvaCodigo() {
   canvas.className = 'codigo-chuva';
   canvas.setAttribute('aria-hidden', 'true');
   document.body.prepend(canvas);
+
+  // o tema atual esconde a chuva pelo CSS: aí nem começa a desenhar (economiza CPU)
+  if (getComputedStyle(canvas).display === 'none') {
+    canvas.remove();
+    return;
+  }
 
   const contexto = canvas.getContext('2d');
   const caracteres = '01{}[]<>/\\;:=+$#@ABCDEFGHIJKLMNOPQRSTUVWXYZ';

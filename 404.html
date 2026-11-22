@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <style>html{background:#090909}html[data-tema="papel"]{background:#ede5d3}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 · 33</title>
+  <script>
+    /* No GitHub Pages esta página aparece em qualquer endereço quebrado
+       (ex.: /33/pasta/coisa). O <base> faz os links e o CSS apontarem
+       sempre pra raiz do site. */
+    (function () {
+      var partes = location.pathname.split('/');
+      if (/github\.io$/.test(location.hostname) && partes.length > 2) {
+        var base = document.createElement('base');
+        base.href = '/' + partes[1] + '/';
+        document.head.appendChild(base);
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="css/style.css?v=fotos-1">
+  <link rel="stylesheet" href="css/extras.css?v=transicao-3">
+  <script src="js/tema.js?v=transicao-3"></script>
+</head>
+<body>
+
+  <header class="topo">
+    <div class="topo-conteudo">
+      <a class="marca" href="index.html">k4pu <span>33</span></a>
+    </div>
+  </header>
+
+  <nav class="nav-principal menu-central">
+    <a href="index.html">home</a>
+    <a href="diario.html">diary</a>
+    <a href="galeria.html">picture</a>
+    <a href="radio.html">radio</a>
+    <a href="universo.html">universo</a>
+    <a href="ferramentas.html">tools</a>
+    <a href="terminal.html">terminal</a>
+  </nav>
+
+  <section class="secao">
+    <div class="secao-titulo">
+      <h2>erro 404</h2>
+      <span class="contagem">arquivo não encontrado</span>
+    </div>
+
+    <div class="erro-404">
+<pre class="erro-arte" aria-hidden="true"> _  _    ___   _  _
+| || |  / _ \ | || |
+| || |_| | | || || |_
+|__   _| | | ||__   _|
+   | | | |_| |   | |
+   |_|  \___/    |_|</pre>
+      <p class="erro-comando">$ cat <span id="erro-caminho">esta-pagina.html</span></p>
+      <p class="erro-falha">cat: <span id="erro-caminho-2">esta-pagina.html</span>: no such file or directory</p>
+      <p class="erro-frase" id="erro-frase">essa página não existe. igual minha vontade de acordar cedo.</p>
+
+      <div class="erro-acoes">
+        <a href="index.html">&larr; voltar pra home</a>
+        <a href="terminal.html">ou se perde no terminal</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="rodape">
+    <div class="rodape-conteudo">
+      <span>k4pu</span>
+      <span class="discord">discord: kapuxn</span>
+      <span>33 / still here (essa página não)</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var nome = decodeURIComponent(location.pathname.split('/').pop() || '') || 'esta-pagina.html';
+      if (nome === '404.html') nome = 'esta-pagina.html';
+      document.getElementById('erro-caminho').textContent = nome;
+      document.getElementById('erro-caminho-2').textContent = nome;
+
+      var FRASES = [
+        'essa página não existe. igual minha vontade de acordar cedo.',
+        'você se perdeu. relaxa, eu também.',
+        'nada aqui. só eu e o vazio.',
+        'essa página foi viver a vida dela.',
+        'erro 404: sentido não encontrado.',
+        'procurou, procurou e achou... nada. bem-vindo ao clube.'
+      ];
+      document.getElementById('erro-frase').textContent =
+        FRASES[Math.floor(Math.random() * FRASES.length)];
+    })();
+  </script>
+  <script src="js/script.js?v=fotos-2"></script>
+  <script src="js/extras.js?v=universo-1"></script>
+  <script src="js/mascote.js?v=passeio-2"></script>
+  <script src="js/transicao.js?v=transicao-3"></script>
+</body>
+</html>

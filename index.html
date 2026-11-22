@@ -2,9 +2,13 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <style>html{background:#090909}html[data-tema="papel"]{background:#ede5d3}</style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>home 33</title>
-  <link rel="stylesheet" href="css/style.css?v=ticker-2">
+  <link rel="stylesheet" href="css/style.css?v=fotos-1">
+  <link rel="stylesheet" href="css/extras.css?v=transicao-3">
+  <script src="js/tema.js?v=transicao-3"></script>
+  <script src="js/loading.js?v=loading-2"></script>
 </head>
 <body>
 
@@ -24,6 +28,9 @@
     <a href="index.html">home</a>
     <a href="diario.html">diary</a>
     <a href="galeria.html">picture</a>
+    <a href="radio.html">radio</a>
+    <a href="universo.html">universo</a>
+    <a href="ferramentas.html">tools</a>
     <a href="terminal.html">terminal</a>
   </nav>
 
@@ -96,9 +103,9 @@
     </article>
 
     <article class="widget widget-contador">
-      <h2>contador</h2>
-      <p class="contador-numero">33.33</p>
-      <small>pessoas passaram por aqui</small>
+      <h2>visitante nº</h2>
+      <p class="contador-numero" id="contador-visitas">······</p>
+      <small id="contador-legenda">contando...</small>
     </article>
   </section>
 
@@ -111,8 +118,10 @@
   </footer>
 
   <script src="js/diario-dados.js?v=posts-pt"></script>
-  <script src="js/changelog-dados.js?v=changelog-1"></script>
-  <script src="js/script.js?v=posts-pt"></script>
+  <script src="js/changelog-dados.js?v=changelog-11"></script>
+  <script src="js/script.js?v=fotos-2"></script>
+  <script src="js/extras.js?v=universo-1"></script>
+  <script src="js/mascote.js?v=passeio-2"></script>
   <script>
     renderListaEntradas("#lista-entradas-home", 3);
     renderChangelog("#lista-changelog", 3);
@@ -122,5 +131,6 @@
       document.getElementById("resultado-enquete").textContent = "voto registrado, valeu!";
     });
   </script>
+  <script src="js/transicao.js?v=transicao-3"></script>
 </body>
 </html>

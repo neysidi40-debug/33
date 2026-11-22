@@ -1,0 +1,11 @@
+{
+  "name": "k4pu-33",
+  "private": true,
+  "description": "ferramentas locais do site (não vão pro ar)",
+  "scripts": {
+    "fotos": "node ferramentas/otimizar-fotos.js"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.4"
+  }
+}

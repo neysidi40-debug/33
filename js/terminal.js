@@ -57,6 +57,9 @@
     "about      — sobre mim",
     "diary      — acessar o diário",
     "pictures   — visualizar fotos",
+    "radio      — rádio 33",
+    "universo   — navegar pelo universo 33",
+    "tools      — ferramentas úteis",
     "music      — músicas",
     "links      — links",
     "contact    — contato",
@@ -142,13 +145,67 @@
 
     diary: () => {
       imprimirLinhas(["opening diary..."], { classe: "destaque" });
-      setTimeout(() => { window.location.href = "diario.html"; }, 650);
+      setTimeout(() => { (window.k4puNavegar || ((u) => { window.location.href = u; }))("diario.html"); }, 650);
     },
 
     pictures: () => {
       imprimirLinhas(["opening pictures..."], { classe: "destaque" });
-      setTimeout(() => { window.location.href = "galeria.html"; }, 650);
-    }
+      setTimeout(() => { (window.k4puNavegar || ((u) => { window.location.href = u; }))("galeria.html"); }, 650);
+    },
+
+    /* ---------- secretos: não aparecem no help ---------- */
+
+    ls: () => imprimirLinhas(["index.html  diario.html  galeria.html  radio.html  universo.html  terminal.html"]),
+
+    "ls -a": () => imprimirLinhas([".  ..  .segredos  .corrompido/  index.html  diario.html  galeria.html", "radio.html  universo.html  terminal.html  sala.html (trancado)"]),
+
+    "cd .corrompido": () => {
+      imprimirLinhas(["entrando em setor danificado..."], { classe: "erro" });
+      setTimeout(() => { (window.k4puNavegar || ((u) => { window.location.href = u; }))("corrompido.html"); }, 800);
+    },
+
+    radio: () => {
+      imprimirLinhas(["sintonizando..."], { classe: "destaque" });
+      setTimeout(() => { (window.k4puNavegar || ((u) => { window.location.href = u; }))("radio.html"); }, 650);
+    },
+
+    universo: () => {
+      imprimirLinhas(["decolando..."], { classe: "destaque" });
+      setTimeout(() => { (window.k4puNavegar || ((u) => { window.location.href = u; }))("universo.html"); }, 650);
+    },
+
+    tools: () => {
+      imprimirLinhas(["abrindo a oficina..."], { classe: "destaque" });
+      setTimeout(() => { (window.k4puNavegar || ((u) => { window.location.href = u; }))("ferramentas.html"); }, 650);
+    },
+
+    nulo: () => {
+      imprimirLinhas(["chamando o nulo..."], { classe: "destaque" });
+      if (window.k4puNulo) window.k4puNulo.mostrar("me chamou? tô aqui embaixo.");
+    },
+
+    "cat .segredos": () => imprimirLinhas([
+      "# coisas escondidas por aí",
+      "- digite 'matrix' aqui",
+      "- digite 'k4pu' ou 'sono' em qualquer página (fora do terminal)",
+      "- clica na palavra 'exist' lá na home",
+      "- o status da home não é bem o que parece",
+      "- ↑ ↑ ↓ ↓ ← → ← → b a",
+      "- existe uma porta. ela precisa de 3 fragmentos.",
+      "- o universo tem um planeta que não devia estar lá",
+      "- tem mais, mas aí já é contar demais"
+    ], { classe: "destaque" }),
+
+    matrix: () => {
+      imprimirLinhas(["wake up, kapu..."], { classe: "destaque" });
+      if (window.k4puMatrix) setTimeout(window.k4puMatrix, 500);
+    },
+
+    "33": () => imprimirLinhas(["still here."], { classe: "destaque" }),
+
+    exit: () => imprimirLinhas(["não tem saída. só F5."], { classe: "aviso" }),
+
+    "sudo rm -rf /": () => imprimirLinhas(["deletando tudo...", "", "brincadeira. já tá tudo quebrado mesmo."], { classe: "erro" })
   };
 
   function executar(entrada) {

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <style>html{background:#090909}html[data-tema="papel"]{background:#ede5d3}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rádio 33</title>
+  <link rel="stylesheet" href="css/style.css?v=fotos-1">
+  <link rel="stylesheet" href="css/extras.css?v=transicao-3">
+  <link rel="stylesheet" href="css/paginas.css?v=tools-1">
+  <script src="js/tema.js?v=transicao-3"></script>
+  <script src="js/loading.js?v=loading-2"></script>
+</head>
+<body>
+
+  <header class="topo">
+    <div class="topo-conteudo">
+      <a class="marca" href="index.html">k4pu <span>33</span></a>
+    </div>
+  </header>
+
+  <nav class="nav-principal menu-central">
+    <a href="index.html">home</a>
+    <a href="diario.html">diary</a>
+    <a href="galeria.html">picture</a>
+    <a href="radio.html">radio</a>
+    <a href="universo.html">universo</a>
+    <a href="ferramentas.html">tools</a>
+    <a href="terminal.html">terminal</a>
+  </nav>
+
+  <section class="secao">
+    <div class="secao-titulo">
+      <h2>rádio 33</h2>
+      <span class="contagem">sintonizado em lugar nenhum</span>
+    </div>
+
+    <div class="radio">
+      <div class="radio-topo">
+        <span class="radio-marca">rádio 33 · fm</span>
+        <span class="radio-sinal"><span class="radio-led" id="radio-led"></span><span id="radio-status">desligado</span></span>
+      </div>
+
+      <div class="radio-visor">
+        <div class="radio-freq" id="radio-freq">33.3 <small>FM</small></div>
+        <div class="radio-nome" id="radio-nome">lofi do nulo</div>
+        <p class="radio-desc" id="radio-desc"></p>
+        <canvas class="radio-onda" id="radio-onda" aria-hidden="true"></canvas>
+        <div class="radio-youtube" id="radio-youtube" hidden></div>
+      </div>
+
+      <div class="radio-dial" aria-hidden="true">
+        <div class="radio-escala"><span style="left:0.0%">32.8</span><span style="left:14.3%">33.0</span><span style="left:35.7%">33.3</span><span style="left:57.1%">33.6</span><span style="left:78.6%">33.9</span><span style="left:100.0%">34.2</span></div>
+        <div class="radio-ponteiro" id="radio-ponteiro"></div>
+      </div>
+
+      <div class="radio-controles">
+        <button type="button" id="radio-anterior" aria-label="estação anterior">◀◀</button>
+        <button type="button" id="radio-ligar" class="radio-ligar" aria-pressed="false">▶ ligar</button>
+        <button type="button" id="radio-proxima" aria-label="próxima estação">▶▶</button>
+        <label class="radio-volume">vol <input type="range" id="radio-volume" min="0" max="100" value="70"></label>
+      </div>
+
+      <ul class="radio-estacoes" id="radio-estacoes" aria-label="estações"></ul>
+    </div>
+
+    <p class="radio-nota">as estações 33.x são geradas ao vivo pelo navegador. nenhuma música é igual duas vezes.</p>
+  </section>
+
+  <footer class="rodape">
+    <div class="rodape-conteudo">
+      <span>k4pu</span>
+      <span class="discord">discord: kapuxn</span>
+      <span>33 / still here</span>
+    </div>
+  </footer>
+
+  <script src="js/script.js?v=fotos-2"></script>
+  <script src="js/extras.js?v=universo-1"></script>
+  <script src="js/mascote.js?v=passeio-2"></script>
+  <script src="js/radio.js?v=universo-2"></script>
+  <script src="js/transicao.js?v=transicao-3"></script>
+</body>
+</html>
