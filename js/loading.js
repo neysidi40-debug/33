@@ -69,16 +69,12 @@
         '<div class="loading-titulo">carregando &nbsp;/&nbsp; k4pu-33 &nbsp;/&nbsp; boot.log</div>' +
         '<ol class="loading-log"><li><span class="loading-comando">$ ./k4pu --iniciar</span></li></ol>' +
         '<div class="loading-progresso"><span class="loading-barra"></span> <span class="loading-pct">0%</span></div>' +
-        '<small class="loading-dica">clique ou aperte qualquer tecla pra pular</small>' +
       '</div>';
     document.body.appendChild(overlay);
 
     var log = overlay.querySelector('.loading-log');
     var elBarra = overlay.querySelector('.loading-barra');
     var elPct = overlay.querySelector('.loading-pct');
-
-    overlay.addEventListener('click', fechar);
-    document.addEventListener('keydown', fechar, { once: true });
 
     function mostrarPct(pct) {
       elBarra.textContent = barra(pct);

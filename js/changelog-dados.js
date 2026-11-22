@@ -1,6 +1,10 @@
 const ATUALIZACOES = [
   {
     data: "22 nov 2026",
+    texto: "o loading agora vai até o fim (sem pular). e nada de ficar fuçando: o nulo não deixa."
+  },
+  {
+    data: "22 nov 2026",
     texto: "transição sem buraco: o texto da cortina continua na página nova e acabou a piscada entre páginas."
   },
   {

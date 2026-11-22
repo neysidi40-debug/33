@@ -490,3 +490,6 @@ html[data-tema="papel"].entrada-cortina::before { color: #a24f3a; }
 
 /* o fundo cobre a tela toda mesmo em páginas curtas */
 body { min-height: 100vh; }
+
+/* a tela de loading não é mais clicável */
+html body > #tela-loading { cursor: inherit; }
